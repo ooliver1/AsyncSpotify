@@ -153,7 +153,7 @@ class ApiRequestHandler:
 
         # Check if the response was a success
         if not response_status.success:
-            raise SpotifyAPIError(response_json)
+            raise SpotifyAPIError(response_json if response_json else {"message": response_text})
 
         return response_json
 
